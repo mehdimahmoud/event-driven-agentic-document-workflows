@@ -122,3 +122,6 @@ celerybeat.pid
 
 # Zone.Identifier files (Windows metadata)
 *:Zone.Identifier
+
+# Gradio
+.gradio/
