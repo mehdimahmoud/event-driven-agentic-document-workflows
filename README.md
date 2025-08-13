@@ -89,28 +89,61 @@ pip install -r requirements.txt
 
 4. Set up environment variables:
 ```bash
-# Create .env file in parent directory
+# Create .env file in the project directory
 OPENAI_API_KEY=your_openai_api_key_here
 LLAMA_CLOUD_API_KEY=your_llama_cloud_api_key_here
-LLAMA_CLOUD_BASE_URL=your_llama_cloud_base_url_here
 ```
 
 ## 🎮 Usage
 
 ### Running the Workflow
 
-1. **Open the Jupyter Notebook**:
+#### Option 1: Launch Jupyter Notebook (Recommended)
+
+1. **Activate your virtual environment**:
    ```bash
-   jupyter notebook L6.ipynb
+   source venv/bin/activate  # On Linux/macOS
+   # or
+   venv\Scripts\activate     # On Windows
    ```
 
-2. **Execute Cells Sequentially**: Follow the notebook step-by-step to:
+2. **Start Jupyter Notebook**:
+   ```bash
+   jupyter notebook
+   ```
+
+3. **Access Jupyter in your browser**:
+   - The terminal will display a URL like: `http://localhost:8888/?token=abc123...`
+   - Copy and paste this URL into your web browser
+   - Navigate to `L6.ipynb` in the Jupyter file browser
+
+4. **Execute Cells Sequentially**: Follow the notebook step-by-step to:
    - Set up the workflow
    - Process resume and application form
    - Generate workflow visualization
    - Test voice feedback capabilities
 
-3. **Voice Input**: Use the Gradio interface to provide voice feedback during the workflow execution
+5. **Voice Input**: Use the Gradio interface to provide voice feedback during the workflow execution
+
+#### Option 2: Direct Notebook Launch
+
+```bash
+# Activate virtual environment
+source venv/bin/activate
+
+# Launch specific notebook directly
+jupyter notebook L6.ipynb
+```
+
+#### Option 3: Jupyter Lab (Alternative Interface)
+
+```bash
+# Install JupyterLab if you prefer it
+pip install jupyterlab
+
+# Launch JupyterLab
+jupyter lab
+```
 
 ### Workflow Steps
 
@@ -150,6 +183,33 @@ The system supports multiple configuration approaches:
 - **Voice Recording**: Ensure microphone permissions are granted for voice feedback
 - **API Limits**: Be mindful of OpenAI API usage and rate limits
 - **Storage Persistence**: Document indexes are automatically persisted for reuse
+
+## 🔧 Troubleshooting
+
+### Common Jupyter Issues
+
+1. **Jupyter not found**: Ensure you're in the virtual environment and have installed requirements
+   ```bash
+   source venv/bin/activate
+   pip install -r requirements.txt
+   ```
+
+2. **Port already in use**: Jupyter will automatically find the next available port
+   - Check the terminal output for the actual URL being used
+   - Or specify a custom port: `jupyter notebook --port=8889`
+
+3. **Kernel not starting**: 
+   - Restart the kernel: Kernel → Restart
+   - Check if all dependencies are installed: `pip list | grep jupyter`
+
+4. **Display not working**: Ensure you're using the correct kernel
+   - Go to Kernel → Change Kernel
+   - Select the kernel that matches your virtual environment
+
+### Environment Variable Issues
+
+- **API keys not found**: Ensure your `.env` file is in the project directory (not parent directory)
+- **Connection errors**: The system now uses default LlamaCloud endpoints automatically
 
 ## 🔄 Extending the Workflow
 
